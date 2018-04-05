@@ -33,6 +33,7 @@ export class HeroComponent implements OnInit {
   intelligenceH2;
   nameH2;
 
+  isLive = true;
   constructor(private http: HttpClient) {
 
   }
@@ -83,5 +84,8 @@ export class HeroComponent implements OnInit {
   }
   attack2() {
     console.log(this.durability2 - 5);
+  }
+  liveGame() {
+    this.isLive = false;
   }
 }

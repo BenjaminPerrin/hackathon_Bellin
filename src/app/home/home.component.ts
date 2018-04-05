@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { HeroComponent } from '../hero/hero.component';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +12,13 @@ import { HeroComponent } from '../hero/hero.component';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  playGame() {
+    this.router.navigate(['game']);
   }
 
 }
