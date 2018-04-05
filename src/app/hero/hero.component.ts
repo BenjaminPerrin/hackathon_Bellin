@@ -38,6 +38,7 @@ export class HeroComponent implements OnInit {
   // durabilityHealth2 = this.durability2;
 
   isLive = true;
+  hp;
   constructor(private http: HttpClient) {
 
   }
