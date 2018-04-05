@@ -21,44 +21,31 @@ export class HeroComponent implements OnInit {
   intelligenceH;
   nameH;
 
+  durability2;
+  idHero2;
+  imageHlg2;
+  imageHmd2;
+  imageHsm2;
+  imageHxs2;
+  powerH2;
+  speedH2;
+  strengthH2;
+  intelligenceH2;
+  nameH2;
+
   constructor(private http: HttpClient) {
 
   }
 
   ngOnInit(): void {
     let id = 0;
+    let id2 = 0;
     function getId(n) {
       id = n;
       return id;
     }
-    getId(729);
-    // this.http.get('https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json').subscribe(data => {
-    //   console.log(data);
-    // });
-    // interface UserResponse {
-    //   id: any;
-    //   name: any;
-    //   powerstats: any;
-    //   intelligence: any;
-    //   strength: any;
-    //   speed: any;
-    //   durability: any;
-    //   power: any;
-    //   images: any;
-    //   xs: any;
-    //   sm: any;
-    //   md: any;
-    //   lg: any;
-    // }
-
+    getId(502);
     this.http.get('https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/id/' + id + '.json').subscribe((data: any) => {
-      console.log('User id: ' + data.id);
-      console.log('User name: ' + data.name);
-      console.log('User intel: ' + data.powerstats.intelligence);
-      console.log('User strength: ' + data.powerstats.strength);
-      console.log('User speed: ' + data.powerstats.speed);
-      console.log('User power: ' + data.powerstats.power);
-      console.log('User durability: ' + data.powerstats.durability);
       this.idHero = parseInt(data.id, 10);
       this.nameH = data.name;
       this.intelligenceH = parseInt(data.powerstats.intelligence, 10);
@@ -71,6 +58,24 @@ export class HeroComponent implements OnInit {
       this.imageHlg = data.images.lg;
       this.durability = parseInt(data.powerstats.durability, 10);
 
+    });
+    function getIdP2(n) {
+      id2 = n;
+      return id2;
+    }
+    getIdP2(1);
+    this.http.get('https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/id/' + id2 + '.json').subscribe((data: any) => {
+      this.idHero2 = parseInt(data.id, 10);
+      this.nameH2 = data.name;
+      this.intelligenceH2 = parseInt(data.powerstats.intelligence, 10);
+      this.strengthH2 = parseInt(data.powerstats.strength, 10);
+      this.speedH2 = parseInt(data.powerstats.speed, 10);
+      this.powerH2 = parseInt(data.powerstats.power, 10);
+      this.imageHxs2 = data.images.xs;
+      this.imageHsm2 = data.images.sm;
+      this.imageHmd2 = data.images.md;
+      this.imageHlg2 = data.images.lg;
+      this.durability2 = parseInt(data.powerstats.durability, 10);
     });
   }
 
