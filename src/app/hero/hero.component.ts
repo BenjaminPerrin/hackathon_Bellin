@@ -44,12 +44,7 @@ export class HeroComponent implements OnInit {
       id = n;
       return id;
     }
-    getId(729);
-    function getIdP2(n) {
-      id2 = n;
-      return id2;
-    }
-    getIdP2(1);
+    getId(502);
     this.http.get('https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/id/' + id + '.json').subscribe((data: any) => {
       this.idHero = parseInt(data.id, 10);
       this.nameH = data.name;
@@ -64,6 +59,11 @@ export class HeroComponent implements OnInit {
       this.durability = parseInt(data.powerstats.durability, 10);
 
     });
+    function getIdP2(n) {
+      id2 = n;
+      return id2;
+    }
+    getIdP2(1);
     this.http.get('https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/id/' + id2 + '.json').subscribe((data: any) => {
       this.idHero2 = parseInt(data.id, 10);
       this.nameH2 = data.name;
@@ -76,7 +76,6 @@ export class HeroComponent implements OnInit {
       this.imageHmd2 = data.images.md;
       this.imageHlg2 = data.images.lg;
       this.durability2 = parseInt(data.powerstats.durability, 10);
-
     });
   }
 
