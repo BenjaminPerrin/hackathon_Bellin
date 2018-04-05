@@ -10,10 +10,9 @@
 
 </p> -->
 <div class="container" *ngIf="isLive">
-  <img src="https://github.com/akabab/superhero-api/blob/master/api/images/md/418-luke-skywalker.jpg?raw=true" alt="cc" value="418"
-    (click)="getNumber(418)">
-  <img src="https://github.com/akabab/superhero-api/blob/master/api/images/md/404-leonardo.jpg?raw=true" alt="cc" value="404"
-    (click)="liveGame()">
+  <div *ngFor="let hero of ids">
+    <img class="heroImg" (click)="test(hero)" [src]="hero.images.xs" /> {{hero.name}}
+  </div>
   <button type="button" class="btn btn-primary" (click)="liveGame()">FIGHT</button>
 
 </div>
@@ -25,17 +24,17 @@
   </div>
   <div class="row">
     <div class="col-3">
-      <h3>{{nameH}}</h3>
+      <h3>{{selected[0].name}}</h3>
       <br/>
-      <img src="{{imageHsm}}">
+      <img class="heroImg" src={{selected[0].images.md}}/>
       <p class="hp_bar">
         <ngb-progressbar type="success" [value]="100"></ngb-progressbar>
       </p>
     </div>
     <div class="col-3 offset-6">
-      <h3>{{nameH2}}</h3>
+      <h3>{{selected[1].name}}</h3>
       <br/>
-      <img src="{{imageHsm2}}">
+      <img class="heroImg" src={{selected[1].images.md}}/>
       <p class="hp_bar">
         <ngb-progressbar type="success" [value]="100"></ngb-progressbar>
       </p>
@@ -44,7 +43,7 @@
   <div class="row">
     <div class="col-3">
       <h3>SKILLS</h3>
-      <button type="button" class="btn btn-primary" (click)="attack1()">Light Attack</button>
+      <button type="button" class="btn btn-primary">Light Attack</button>
       <button type="button" class="btn btn-primary">Heavy Attack</button>
     </div>
     <div class="col-3 offset-6">
