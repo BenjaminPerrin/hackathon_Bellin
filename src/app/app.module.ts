@@ -1,15 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule, Routes } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SelectComponent } from './select/select.component';
 import { HeroComponent } from './hero/hero.component';
-import { GameComponent } from './game/game.component';
 
 import { HttpClientModule } from '@angular/common/http';
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'select', component: SelectComponent },
+  { path: 'game', component: HeroComponent },
+  {
+    path: '**',
+    redirectTo: '/',
+    pathMatch: 'full',
+  },
+];
 
 @NgModule({
   declarations: [
@@ -17,12 +28,15 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     SelectComponent,
     HeroComponent,
-    GameComponent
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true },
+    ),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-select',
@@ -8,9 +9,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SelectComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  startFight() {
+    this.router.navigate(['game']);
   }
 
 }
