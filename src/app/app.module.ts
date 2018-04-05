@@ -9,6 +9,7 @@ import { SelectComponent } from './select/select.component';
 import { HeroComponent } from './hero/hero.component';
 import { GameComponent } from './game/game.component';
 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { GameComponent } from './game/game.component';
   ],
   imports: [
     BrowserModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
