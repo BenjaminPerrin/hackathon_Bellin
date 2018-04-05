@@ -10,6 +10,10 @@
 
 </p> -->
 <div class="container" *ngIf="isLive">
+  <img src="https://github.com/akabab/superhero-api/blob/master/api/images/md/418-luke-skywalker.jpg?raw=true" alt="cc" value="418"
+    (click)="getNumber(418)">
+  <img src="https://github.com/akabab/superhero-api/blob/master/api/images/md/404-leonardo.jpg?raw=true" alt="cc" value="404"
+    (click)="liveGame()">
   <button type="button" class="btn btn-primary" (click)="liveGame()">FIGHT</button>
 
 </div>
@@ -29,9 +33,9 @@
       </p>
     </div>
     <div class="col-3 offset-6">
-      <h3>{{nameH}}</h3>
+      <h3>{{nameH2}}</h3>
       <br/>
-      <img src="{{imageHsm}}">
+      <img src="{{imageHsm2}}">
       <p class="hp_bar">
         <ngb-progressbar type="success" [value]="100"></ngb-progressbar>
       </p>
@@ -40,7 +44,7 @@
   <div class="row">
     <div class="col-3">
       <h3>SKILLS</h3>
-      <button type="button" class="btn btn-primary">Light Attack</button>
+      <button type="button" class="btn btn-primary" (click)="attack1()">Light Attack</button>
       <button type="button" class="btn btn-primary">Heavy Attack</button>
     </div>
     <div class="col-3 offset-6">

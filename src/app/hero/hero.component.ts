@@ -9,6 +9,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./hero.component.css']
 })
 export class HeroComponent implements OnInit {
+  getIdP2;
+  getIdP1;
+
   durability;
   idHero;
   imageHlg;
@@ -32,6 +35,7 @@ export class HeroComponent implements OnInit {
   strengthH2;
   intelligenceH2;
   nameH2;
+  durabilityHealth2 = this.durability2;
 
   isLive = true;
   constructor(private http: HttpClient) {
@@ -39,13 +43,14 @@ export class HeroComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     let id = 0;
     let id2 = 0;
-    function getId(n) {
-      id = n;
+    function getId(value) {
+      id = value;
       return id;
     }
-    getId(502);
+    getId(404);
     this.http.get('https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/id/' + id + '.json').subscribe((data: any) => {
       this.idHero = parseInt(data.id, 10);
       this.nameH = data.name;
@@ -64,7 +69,7 @@ export class HeroComponent implements OnInit {
       id2 = n;
       return id2;
     }
-    getIdP2(1);
+    getIdP2(2);
     this.http.get('https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/id/' + id2 + '.json').subscribe((data: any) => {
       this.idHero2 = parseInt(data.id, 10);
       this.nameH2 = data.name;
@@ -79,8 +84,14 @@ export class HeroComponent implements OnInit {
       this.durability2 = parseInt(data.powerstats.durability, 10);
     });
   }
+  getNumber(value) {
+    const id = value;
+    return id;
+  }
   attack1() {
-    console.log(this.durability - 5);
+    this.durabilityHealth2 -= 10;
+
+    console.log(this.durabilityHealth2);
   }
   attack2() {
     console.log(this.durability2 - 5);
