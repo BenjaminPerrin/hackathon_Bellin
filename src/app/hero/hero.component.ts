@@ -78,5 +78,10 @@ export class HeroComponent implements OnInit {
       this.durability2 = parseInt(data.powerstats.durability, 10);
     });
   }
-
+  attack1() {
+    console.log(this.durability - 5);
+  }
+  attack2() {
+    console.log(this.durability2 - 5);
+  }
 }
