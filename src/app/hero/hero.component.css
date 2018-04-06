@@ -21,6 +21,7 @@
 
 .fightBtn {
   font-family: 'Permanent Marker', cursive;
+  font-size: 25px;
   border: solid black 2px;
   border-radius: 15px;
   background-color: red;
@@ -29,7 +30,7 @@
 }
 
 .fightBtn:hover {
-  font-size: 25px;
+  font-size: 35px;
   background-color: white;
   color: red;
 }
