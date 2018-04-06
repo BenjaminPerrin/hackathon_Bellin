@@ -1,0 +1,6 @@
+.combat_bg {
+  background-image: url("./../../assets/maya_background.gif");
+  width: 100%;
+  height: 52vw;
+  background-size: cover;
+}

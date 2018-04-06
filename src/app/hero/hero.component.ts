@@ -69,4 +69,18 @@ export class HeroComponent implements OnInit {
     console.log(this.selected[1].powerstats.durability);
 
   }
+  attack2() {
+    this.selected[0].powerstats.durability = this.selected[0].powerstats.durability - 10;
+    console.log(this.selected[0].powerstats.durability);
+
+  }
+  attackH1() {
+    this.selected[1].powerstats.durability = this.selected[1].powerstats.durability - 15;
+    console.log(this.selected[1].powerstats.durability);
+  }
+  attackH2() {
+    this.selected[0].powerstats.durability = this.selected[0].powerstats.durability - 15;
+    console.log(this.selected[0].powerstats.durability);
+  }
 }
+
