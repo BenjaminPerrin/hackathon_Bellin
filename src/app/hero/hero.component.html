@@ -69,12 +69,14 @@
   <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
       <h4 class="modal-title">{{selected[this.winner].name}} Win !</h4>
+
       <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <p>You are way better than your opponent ! &hellip;</p>
+      <p>
+        <img class="heroImg" style="border-radius:100px" src={{selected[this.winner].images.xs}}/>You are way better than your opponent ! &hellip;</p>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-light" (click)="goGame(); c('Close click')">Return to game</button>
