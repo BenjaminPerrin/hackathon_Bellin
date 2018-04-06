@@ -26,7 +26,7 @@
     </div>
 
     <div class="row justify-content-center">
-      <button type="button" class="btn btn-primary fightBtn" (click)="liveGame()">FIGHT !</button>
+      <button type="button" ng-mouseover="sound()" class="btn btn-primary fightBtn" (click)="liveGame()">FIGHT !</button>
     </div>
   </div>
 </div>
@@ -47,7 +47,11 @@
           <ngb-progressbar type="success" max="100" value="{{selected[0].powerstats.durability}}">{{selected[0].powerstats.durability}}</ngb-progressbar>
         </p>
       </div>
-      <div class="col-3 offset-6 text-center">
+      <div class="col-5 offset-1">
+        <div [innerHTML]="htmlStr" class="bob">
+        </div>
+      </div>
+      <div class="col-3 text-center">
         <h3>{{selected[1].name}}</h3>
         <br/>
         <img class="heroImg" src={{selected[1].images.md}}/>
@@ -64,6 +68,7 @@
         <button type="button " class="btn btn-primary" (click)="attackH1()" [disabled]="turn == 1 || win == 1 || onlyOne == 1">Heavy Attack</button>
         <button type="button " class="btn btn-primary" (click)="heal()" [disabled]="turn == 1 || win == 1 || healOne == 1">Heal</button>
       </div>
+
       <div class="col-3 offset-6 ">
         <h3>SKILLS</h3>
         <button type="button " class="btn btn-primary" (click)="Lifesteal2()" [disabled]="turn == 0 || win == 1">Lifesteal</button>
