@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+.bob {
+  color: white;
+  background-color: rgba(0, 0, 0, .3)
+}
+
 .combat_bg {
   background-image: url("./../../assets/fire_background.gif");
   width: 100%;

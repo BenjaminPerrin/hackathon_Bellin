@@ -26,7 +26,7 @@
     </div>
 
     <div class="row justify-content-center">
-      <button type="button" class="btn btn-primary fightBtn" (click)="liveGame()">FIGHT !</button>
+      <button type="button" ng-mouseover="sound()" class="btn btn-primary fightBtn" (click)="liveGame()">FIGHT !</button>
     </div>
   </div>
 </div>
@@ -55,6 +55,9 @@
       </div>
       <div class="col-4 offset-4 text-center heroInGame">
         <h3 class="heroName">{{selected[1].name}}</h3>
+          <div class="col-5 offset-1">
+          <div [innerHTML]="htmlStr" class="bob">
+          </div>
         <br/>
         <img class="heroImg" src={{selected[1].images.md}}/>
         <p class="hp_bar">
