@@ -25,32 +25,6 @@ export class HeroComponent implements OnInit {
   win = 0;
   closeResult;
   winner;
-  // content;
-  // durability;
-  // idHero;
-  // imageHlg;
-  // imageHmd;
-  // imageHsm;
-  // imageHxs;
-  // powerH;
-  // speedH;
-  // strengthH;
-  // intelligenceH;
-  // nameH;
-
-  // durability2;
-  // idHero2;
-  // imageHlg2;
-  // imageHmd2;
-  // imageHsm2;
-  // imageHxs2;
-  // powerH2;
-  // speedH2;
-  // strengthH2;
-  // intelligenceH2;
-  // nameH2;
-  // durabilityHealth2 = this.durability2;
-
   isLive = true;
   hp;
   constructor(private http: HttpClient, config: NgbProgressbarConfig, private modalService: NgbModal, private router: Router) {
@@ -65,7 +39,6 @@ export class HeroComponent implements OnInit {
     this.ids = [];
     this.selected = [];
     this.http.get('https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json').subscribe((data: any) => {
-      // this.ids = data;
       for (let index = 0; index < 12; index++) {
         this.ids.push(data[index]);
       }
@@ -75,9 +48,7 @@ export class HeroComponent implements OnInit {
     this.isLive = false;
   }
   test(me) {
-    // console.log(me);
     this.selected.push(me);
-    console.log(this.selected);
   }
   openVerticallyCentered() {
     this.modalService.open(this.content, { centered: true });
@@ -96,30 +67,24 @@ export class HeroComponent implements OnInit {
   attack1() {
     this.turn = 1;
     this.selected[1].powerstats.durability = this.selected[1].powerstats.durability - 10;
-    console.log(this.selected[1].powerstats.durability);
     this.winGG(1);
   }
   attack2() {
     this.turn = 0;
     this.selected[0].powerstats.durability = this.selected[0].powerstats.durability - 10;
-    console.log(this.selected[0].powerstats.durability);
     this.winGG(0);
   }
   attackH1() {
     this.turn = 1;
     this.selected[1].powerstats.durability = this.selected[1].powerstats.durability - 100;
-    console.log(this.selected[1].powerstats.durability);
     this.winGG(1);
   }
   attackH2() {
     this.turn = 0;
     this.selected[0].powerstats.durability = this.selected[0].powerstats.durability - 100;
-    console.log(this.selected[0].powerstats.durability);
     this.winGG(0);
   }
   goGame() {
-    // this.router.navigate(['game']);
     window.location.reload();
   }
 }
-
