@@ -59,13 +59,17 @@
     <div class="row">
       <div class="col-3">
         <h3>SKILLS</h3>
-        <button type="button" class="btn btn-primary" (click)="attack1()" [disabled]="turn == 1 || win == 1">Light Attack</button>
-        <button type="button " class="btn btn-primary" (click)="attackH1()" [disabled]="turn == 1 || win == 1">Heavy Attack</button>
+        <button type="button" class="btn btn-primary" (click)="Lifesteal()" [disabled]="turn == 1 || win == 1">Lifesteal</button>
+        <button type="button" class="btn btn-primary" (click)="powerShoot()" [disabled]="turn == 1 || win == 1">Light Attack</button>
+        <button type="button " class="btn btn-primary" (click)="attackH1()" [disabled]="turn == 1 || win == 1 || onlyOne == 1">Heavy Attack</button>
+        <button type="button " class="btn btn-primary" (click)="heal()" [disabled]="turn == 1 || win == 1 || healOne == 1">Heal</button>
       </div>
       <div class="col-3 offset-6 ">
         <h3>SKILLS</h3>
-        <button type="button " class="btn btn-primary" (click)="attack2()" [disabled]="turn == 0 || win == 1">Light Attack</button>
-        <button type="button " class="btn btn-primary" (click)="attackH2()" [disabled]="turn == 0 || win == 1">Heavy Attack</button>
+        <button type="button " class="btn btn-primary" (click)="Lifesteal2()" [disabled]="turn == 0 || win == 1">Lifesteal</button>
+        <button type="button " class="btn btn-primary" (click)="powerShoot2()" [disabled]="turn == 0 || win == 1">Light Attack</button>
+        <button type="button " class="btn btn-primary" (click)="attackH2()" [disabled]="turn == 0 || win == 1 || onlyTwo == 1">Heavy Attack</button>
+        <button type="button " class="btn btn-primary" (click)="heal2()" [disabled]="turn == 0 || win == 1 || healTwo == 1">Heal</button>
       </div>
     </div>
   </div>

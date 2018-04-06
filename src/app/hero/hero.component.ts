@@ -19,7 +19,9 @@ export class HeroComponent implements OnInit {
   selected;
   ids;
   durability;
+  intelligence;
   powerstats;
+  power;
   pvmax;
   turn = 0;
   win = 0;
@@ -27,6 +29,11 @@ export class HeroComponent implements OnInit {
   winner;
   isLive = true;
   hp;
+  onlyOne;
+  onlyTwo;
+  healOne;
+  healTwo;
+  strength;
   constructor(private http: HttpClient, config: NgbProgressbarConfig, private modalService: NgbModal, private router: Router) {
     config.max = 100;
     config.striped = false;
@@ -52,6 +59,7 @@ export class HeroComponent implements OnInit {
     // console.log(me);
     this.selected.push(me);
     document.getElementById('heroCard' + i).style.opacity = '0.5';
+  }
 
   openVerticallyCentered() {
     this.modalService.open(this.content, { centered: true });
@@ -67,26 +75,62 @@ export class HeroComponent implements OnInit {
       }
     }
   }
-  attack1() {
+  Lifesteal() {
     this.turn = 1;
-    this.selected[1].powerstats.durability = this.selected[1].powerstats.durability - 10;
+    this.selected[1].powerstats.durability = (this.selected[1].powerstats.durability
+      - Math.floor((this.selected[0].powerstats.strength / 10)));
+    this.selected[0].powerstats.durability = this.selected[0].powerstats.durability
+      + Math.floor((this.selected[0].powerstats.intelligence / 10));
     this.winGG(1);
   }
-  attack2() {
+  heal() {
+    this.healOne = 1;
+    this.turn = 1;
+    this.selected[0].powerstats.durability = this.selected[0].powerstats.durability
+      + Math.floor((this.selected[0].powerstats.intelligence / 5));
+    this.winGG(1);
+  }
+  powerShoot() {
+    this.turn = 1;
+    this.selected[1].powerstats.durability = (this.selected[1].powerstats.durability
+      - Math.floor((this.selected[0].powerstats.power / 5)));
+    this.winGG(1);
+  }
+  // player 2
+  powerShoot2() {
     this.turn = 0;
-    this.selected[0].powerstats.durability = this.selected[0].powerstats.durability - 10;
+    this.selected[0].powerstats.durability = (this.selected[0].powerstats.durability
+      - Math.floor((this.selected[1].powerstats.power / 5)));
+    this.winGG(0);
+  }
+  heal2() {
+    this.healTwo = 1;
+    this.turn = 0;
+    this.selected[1].powerstats.durability = this.selected[1].powerstats.durability
+      + Math.floor((this.selected[1].powerstats.intelligence / 5));
+    this.winGG(0);
+  }
+  Lifesteal2() {
+    this.turn = 0;
+    this.selected[0].powerstats.durability = (this.selected[0].powerstats.durability
+      - Math.floor((this.selected[1].powerstats.strength / 10)));
+    this.selected[1].powerstats.durability = (this.selected[1].powerstats.durability
+      - Math.floor((this.selected[0].powerstats.strength / 10)));
     this.winGG(0);
   }
   attackH1() {
+    this.onlyOne = 1;
     this.turn = 1;
-    this.selected[1].powerstats.durability = this.selected[1].powerstats.durability - 100;
+    this.selected[1].powerstats.durability = this.selected[1].powerstats.durability - 40;
     this.winGG(1);
   }
   attackH2() {
+    this.onlyTwo = 1;
     this.turn = 0;
-    this.selected[0].powerstats.durability = this.selected[0].powerstats.durability - 100;
+    this.selected[0].powerstats.durability = this.selected[0].powerstats.durability - 40;
     this.winGG(0);
   }
+
   goGame() {
     window.location.reload();
   }
