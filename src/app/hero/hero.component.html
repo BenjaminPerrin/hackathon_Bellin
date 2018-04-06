@@ -24,6 +24,7 @@
         </div>
       </div>
     </div>
+
     <div class="row justify-content-center">
       <button type="button" class="btn btn-primary fightBtn" (click)="liveGame()">FIGHT !</button>
     </div>
@@ -43,7 +44,7 @@
         <br/>
         <img class="heroImg" src={{selected[0].images.md}}/>
         <p class="hp_bar">
-          <ngb-progressbar type="success" [value]="hp"></ngb-progressbar>
+          <ngb-progressbar type="success" max="100" value="{{selected[0].powerstats.durability}}">{{selected[0].powerstats.durability}}</ngb-progressbar>
         </p>
       </div>
       <div class="col-3 offset-6 text-center">
@@ -51,21 +52,37 @@
         <br/>
         <img class="heroImg" src={{selected[1].images.md}}/>
         <p class="hp_bar">
-          <ngb-progressbar type="success" [value]="100"></ngb-progressbar>
+          <ngb-progressbar type="success" max="100" value="{{selected[1].powerstats.durability}}">{{selected[1].powerstats.durability}}</ngb-progressbar>
         </p>
       </div>
     </div>
     <div class="row">
       <div class="col-3">
         <h3>SKILLS</h3>
-        <button type="button" class="btn btn-primary">Light Attack</button>
-        <button type="button" class="btn btn-primary">Heavy Attack</button>
+        <button type="button" class="btn btn-primary" (click)="attack1()" [disabled]="turn == 1 || win == 1">Light Attack</button>
+        <button type="button " class="btn btn-primary" (click)="attackH1()" [disabled]="turn == 1 || win == 1">Heavy Attack</button>
       </div>
-      <div class="col-3 offset-6">
+      <div class="col-3 offset-6 ">
         <h3>SKILLS</h3>
-        <button type="button" class="btn btn-primary">Light Attack</button>
-        <button type="button" class="btn btn-primary" click="attack1()">Heavy Attack</button>
+        <button type="button " class="btn btn-primary" (click)="attack2()" [disabled]="turn == 0 || win == 1">Light Attack</button>
+        <button type="button " class="btn btn-primary" (click)="attackH2()" [disabled]="turn == 0 || win == 1">Heavy Attack</button>
       </div>
     </div>
   </div>
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">{{selected[this.winner].name}} Win !</h4>
+
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>
+        <img class="heroImg" style="border-radius:100px" src={{selected[this.winner].images.xs}}/>You are way better than your opponent ! &hellip;</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="goGame(); c('Close click')">Return to game</button>
+    </div>
+  </ng-template>
 </div>
