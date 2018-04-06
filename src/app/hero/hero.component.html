@@ -53,11 +53,12 @@
           <button class="healBtn spellBtn" placement="top" ngbTooltip="Heal" (click)="heal()" [disabled]="healOne == 1"></button>
         </div>
       </div>
-      <div class="col-4 offset-4 text-center heroInGame">
+      <div class="col-4 text-center">
+        <h4 class="combatLog">Combat Log</h4>
+        <div [innerHTML]="htmlStr" class="bob"></div>
+      </div>
+      <div class="col-4 text-center heroInGame">
         <h3 class="heroName">{{selected[1].name}}</h3>
-          <div class="col-5 offset-1">
-          <div [innerHTML]="htmlStr" class="bob">
-          </div>
         <br/>
         <img class="heroImg" src={{selected[1].images.md}}/>
         <p class="hp_bar">

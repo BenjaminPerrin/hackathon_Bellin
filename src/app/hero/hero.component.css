@@ -1,7 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 .bob {
   color: white;
-  background-color: rgba(0, 0, 0, .3)
+  background-color: rgba(0, 0, 0, .5);
+  border-radius: 15px;
+  overflow: auto;
+  height: 30vw;
+  max-height: 30vw;
+  padding: 10px 10px 10px 10px;
+}
+
+.combatLog {
+  font-family: 'Permanent Marker', cursive;
+  color: white;
+  border: rgba(0, 0, 0, .5) solid;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, .5);
 }
 
 .combat_bg {
