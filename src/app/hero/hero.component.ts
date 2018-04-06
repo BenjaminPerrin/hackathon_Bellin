@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbProgressbarConfig } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
+import { ViewChild } from '@angular/core';
+
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hero',
@@ -10,6 +14,7 @@ import { HttpClient } from '@angular/common/http';
   providers: [NgbProgressbarConfig]
 })
 export class HeroComponent implements OnInit {
+  @ViewChild('content') private content;
 
   selected;
   ids;
@@ -18,6 +23,9 @@ export class HeroComponent implements OnInit {
   pvmax;
   turn = 0;
   win = 0;
+  closeResult;
+  winner;
+  // content;
   // durability;
   // idHero;
   // imageHlg;
@@ -45,7 +53,7 @@ export class HeroComponent implements OnInit {
 
   isLive = true;
   hp;
-  constructor(private http: HttpClient, config: NgbProgressbarConfig) {
+  constructor(private http: HttpClient, config: NgbProgressbarConfig, private modalService: NgbModal, private router: Router) {
     config.max = 100;
     config.striped = false;
     config.animated = true;
@@ -58,7 +66,7 @@ export class HeroComponent implements OnInit {
     this.selected = [];
     this.http.get('https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json').subscribe((data: any) => {
       // this.ids = data;
-      for (let index = 0; index < 5; index++) {
+      for (let index = 0; index < 12; index++) {
         this.ids.push(data[index]);
       }
     });
@@ -71,9 +79,18 @@ export class HeroComponent implements OnInit {
     this.selected.push(me);
     console.log(this.selected);
   }
+  openVerticallyCentered() {
+    this.modalService.open(this.content, { centered: true });
+  }
   winGG(n) {
     if (this.selected[n].powerstats.durability <= 0) {
       this.win = 1;
+      this.openVerticallyCentered();
+      if (n === 0) {
+        this.winner = 1;
+      } else if (n === 1) {
+        this.winner = 0;
+      }
     }
   }
   attack1() {
@@ -90,16 +107,19 @@ export class HeroComponent implements OnInit {
   }
   attackH1() {
     this.turn = 1;
-    this.selected[1].powerstats.durability = this.selected[1].powerstats.durability - 15;
+    this.selected[1].powerstats.durability = this.selected[1].powerstats.durability - 100;
     console.log(this.selected[1].powerstats.durability);
     this.winGG(1);
   }
   attackH2() {
     this.turn = 0;
-    this.selected[0].powerstats.durability = this.selected[0].powerstats.durability - 15;
+    this.selected[0].powerstats.durability = this.selected[0].powerstats.durability - 100;
     console.log(this.selected[0].powerstats.durability);
     this.winGG(0);
   }
-
+  goGame() {
+    // this.router.navigate(['game']);
+    window.location.reload();
+  }
 }
 
