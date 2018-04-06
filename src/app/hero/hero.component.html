@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div *ngFor="let hero of ids; let i = index" class="col-2 text-center heroCard" [id]="'heroCard' + i">
+      <div *ngFor="let hero of ids; let i = index" (mouseover)="soundSelect()" class="col-2 text-center heroCard" [id]="'heroCard' + i">
         <img class="heroImg" (click)="test(hero, i)" [src]="hero.images.sm" />
         <div class="heroText">
           {{hero.name}}
@@ -26,7 +26,7 @@
     </div>
 
     <div class="row justify-content-center">
-      <button type="button" ng-mouseover="sound()" class="btn btn-primary fightBtn" (click)="liveGame()">FIGHT !</button>
+      <button type="button" (mouseover)="sound()" class="btn btn-primary fightBtn" (click)="liveGame()">FIGHT !</button>
     </div>
   </div>
 </div>
@@ -55,37 +55,37 @@
       </div>
       <div class="col-4 offset-4 text-center heroInGame">
         <h3 class="heroName">{{selected[1].name}}</h3>
-          <div class="col-5 offset-1">
+        <div class="col-5 offset-1">
           <div [innerHTML]="htmlStr" class="bob">
           </div>
-        <br/>
-        <img class="heroImg" src={{selected[1].images.md}}/>
-        <p class="hp_bar">
-          <ngb-progressbar class="hpBar" type="success" max="100" value="{{selected[1].powerstats.durability}}">{{selected[1].powerstats.durability}}</ngb-progressbar>
-        </p>
-        <div class="spellsBack" *ngIf="turn == 1">
-          <button class="lifeBtn spellBtn" placement="top" ngbTooltip="Steals Life" (click)="Lifesteal2()"></button>
-          <button class="powerBtn spellBtn" placement="top" ngbTooltip="Light Attack" (click)="powerShoot2()"></button>
-          <button class="atqBtn spellBtn" placement="top" ngbTooltip="Heavy Attack" (click)="attackH2()" [disabled]="onlyTwo == 1"></button>
-          <button class="healBtn spellBtn" placement="top" ngbTooltip="Heal" (click)="heal2()" [disabled]="healTwo == 1"></button>
+          <br/>
+          <img class="heroImg" src={{selected[1].images.md}}/>
+          <p class="hp_bar">
+            <ngb-progressbar class="hpBar" type="success" max="100" value="{{selected[1].powerstats.durability}}">{{selected[1].powerstats.durability}}</ngb-progressbar>
+          </p>
+          <div class="spellsBack" *ngIf="turn == 1">
+            <button class="lifeBtn spellBtn" placement="top" ngbTooltip="Steals Life" (click)="Lifesteal2()"></button>
+            <button class="powerBtn spellBtn" placement="top" ngbTooltip="Light Attack" (click)="powerShoot2()"></button>
+            <button class="atqBtn spellBtn" placement="top" ngbTooltip="Heavy Attack" (click)="attackH2()" [disabled]="onlyTwo == 1"></button>
+            <button class="healBtn spellBtn" placement="top" ngbTooltip="Heal" (click)="heal2()" [disabled]="healTwo == 1"></button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <ng-template #content let-c="close" let-d="dismiss">
-    <div class="modal-header">
-      <h4 class="modal-title">{{selected[this.winner].name}} Win !</h4>
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title">{{selected[this.winner].name}} Win !</h4>
 
-      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <p>
-        <img class="heroImg" style="border-radius:100px" src={{selected[this.winner].images.xs}}/>You are way better than your opponent ! &hellip;</p>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-light" (click)="goGame(); c('Close click')">Return to game</button>
-    </div>
-  </ng-template>
-</div>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          <img class="heroImg" style="border-radius:100px" src={{selected[this.winner].images.xs}}/>You are way better than your opponent ! &hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="goGame(); c('Close click')">Return to game</button>
+      </div>
+    </ng-template>
+  </div>
