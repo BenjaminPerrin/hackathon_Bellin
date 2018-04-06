@@ -12,17 +12,20 @@
 <div class="container-fluid" *ngIf="isLive">
   <div class="select_bg">
     <div class="row justify-content-center">
-      <div class="col-12 text-center">
+      <div class="col-12 text-center selectTitle">
         <h1>SELECT YOUR HERO</h1>
       </div>
     </div>
-    <div class="row">
-      <div *ngFor="let hero of ids" class="col">
-        <img class="heroImg" (click)="test(hero)" [src]="hero.images.xs" /> {{hero.name}}
+    <div class="row justify-content-center">
+      <div *ngFor="let hero of ids; let i = index" class="col-2 text-center heroCard" [id]="'heroCard' + i">
+        <img class="heroImg" (click)="test(hero, i)" [src]="hero.images.sm" />
+        <div class="heroText">
+          {{hero.name}}
+        </div>
       </div>
     </div>
     <div class="row justify-content-center">
-      <button type="button" class="btn btn-primary" (click)="liveGame()">FIGHT</button>
+      <button type="button" class="btn btn-primary fightBtn" (click)="liveGame()">FIGHT</button>
     </div>
   </div>
 </div>

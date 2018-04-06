@@ -49,7 +49,7 @@ export class HeroComponent implements OnInit {
 
     this.http.get('https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json').subscribe((data: any) => {
       // this.ids = data;
-      for (let index = 0; index < 5; index++) {
+      for (let index = 0; index < 12; index++) {
         this.ids.push(data[index]);
       }
     });
@@ -57,9 +57,10 @@ export class HeroComponent implements OnInit {
   liveGame() {
     this.isLive = false;
   }
-  test(me) {
+  test(me, i) {
     // console.log(me);
     this.selected.push(me);
+    document.getElementById('heroCard' + i).style.opacity = '0.5';
     console.log(this.selected);
   }
 }

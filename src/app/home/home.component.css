@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 .logo {
   width: 50%;
   height: 50%;
@@ -6,6 +7,9 @@
 
 .btn {
   font-size: 45px;
+  font-family: 'Permanent Marker', cursive;
+  border: solid black 2px;
+  border-radius: 15px;
   margin-bottom: 2.5em;
   background-color: red;
   color: black;
@@ -20,10 +24,7 @@
 
 .container-fluid {
   background-image: url("./../../assets/fire_background.gif");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   width: 100%;
-  height: 52vw;
+  height: 56vw;
 }
