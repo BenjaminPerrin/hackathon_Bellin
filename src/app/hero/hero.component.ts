@@ -64,6 +64,7 @@ export class HeroComponent implements OnInit {
 
   openVerticallyCentered() {
     this.modalService.open(this.content, { centered: true });
+    this.youWin();
   }
   winGG(n) {
     if (this.selected[n].powerstats.durability <= 0) {
@@ -153,6 +154,15 @@ export class HeroComponent implements OnInit {
   }
   sound() {
     const audio = new Audio('../assets/sound/fight.wav');
+    audio.volume = 1;
+    audio.play();
+  }
+  soundSelect() {
+    const audio = new Audio('../assets/sound/select.wav');
+    audio.play();
+  }
+  youWin() {
+    const audio = new Audio('../assets/sound/youwin.wav');
     audio.play();
   }
 }
