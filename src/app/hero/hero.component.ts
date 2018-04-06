@@ -153,16 +153,16 @@ export class HeroComponent implements OnInit {
     window.location.reload();
   }
   sound() {
-    const audio = new Audio('../assets/sound/fight.wav');
+    const audio = new Audio('./assets/sound/fight.wav');
     audio.volume = 1;
     audio.play();
   }
   soundSelect() {
-    const audio = new Audio('../assets/sound/select.wav');
+    const audio = new Audio('./assets/sound/select.wav');
     audio.play();
   }
   youWin() {
-    const audio = new Audio('../assets/sound/youwin.wav');
+    const audio = new Audio('./assets/sound/youwin.wav');
     audio.play();
   }
 }
