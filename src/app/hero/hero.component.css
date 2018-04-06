@@ -1,6 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 .combat_bg {
+  background-image: url("./../../assets/fire_background.gif");
+  width: 100%;
+  height: 56vw;
+  background-size: cover;
+}
+
+.selectTitle {
+  margin-top: 20px;
+  margin-bottom: 25px;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.select_bg {
   background-image: url("./../../assets/maya_background.gif");
   width: 100%;
-  height: 52vw;
+  height: 56vw;
   background-size: cover;
+}
+
+.fightBtn {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 25px;
+  border: solid black 2px;
+  border-radius: 15px;
+  background-color: red;
+  color: black;
+  transition: all 0.15s ease-in-out;
+}
+
+.fightBtn:hover {
+  font-size: 35px;
+  background-color: white;
+  color: red;
+}
+
+.heroCard {
+  transition: all 0.15s ease-in-out;
+  border-radius: 20px;
+}
+
+.heroCard:hover {
+  background-color: rgba(233, 144, 11, 0.8)
+}
+
+.heroCard:active {
+  opacity: 0.5;
+}
+
+.heroImg {
+  border-radius: 20px;
+  margin: 10px 10px 10px 10px;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, .3);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.15s ease-in-out;
+}
+
+.heroText {
+  background-color: rgba(0, 0, 0, .8);
+  color: white;
+  font-family: 'Permanent Marker', cursive;
+  height: 55px;
+  width: 75%;
+  position: absolute;
+  bottom: 10px;
+  left: 26px;
+  text-align: center;
+  border-radius: 0px 0px 15px 15px;
 }

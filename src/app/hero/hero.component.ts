@@ -47,9 +47,12 @@ export class HeroComponent implements OnInit {
   liveGame() {
     this.isLive = false;
   }
-  test(me) {
+
+  test(me, i) {
+    // console.log(me);
     this.selected.push(me);
-  }
+    document.getElementById('heroCard' + i).style.opacity = '0.5';
+
   openVerticallyCentered() {
     this.modalService.open(this.content, { centered: true });
   }
