@@ -74,3 +74,80 @@
   text-align: center;
   border-radius: 0px 0px 15px 15px;
 }
+
+.logo {
+  width: 35%;
+  margin-bottom: 0;
+}
+
+.heroInGame {
+  margin-top: 0;
+  margin-bottom: 0;
+  position: relative;
+  bottom: 180px;
+}
+
+.heroName {
+  font-family: 'Permanent Marker', cursive;
+  color: white;
+  border: solid white 2px;
+  background-color: rgba(0, 0, 0, .5);
+  border-radius: 25px;
+  margin-bottom: 0;
+}
+
+.lifeBtn {
+  background-image: url("./../../assets/drain-life.png");
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  width: 5vw;
+  height: 5vw;
+}
+
+.powerBtn {
+  background-image: url("./../../assets/earthquake.png");
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  width: 5vw;
+  height: 5vw;
+}
+
+.atqBtn {
+  background-image: url("./../../assets/decimate.png");
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  width: 5vw;
+  height: 5vw;
+}
+
+.healBtn {
+  background-image: url("./../../assets/soothing-mist.png");
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  width: 5vw;
+  height: 5vw;
+}
+
+.spellBtn {
+  transition: all 0.15s ease-in-out;
+}
+
+.spellBtn:hover {
+  width: 6.5vw;
+  height: 6.5vw;
+}
+
+.spellsBack {
+  background-color: rgba(0, 0, 0, .8);
+  width: 25vw;
+  height: 7vw;
+  max-height: 7vw;
+  min-height: 7vw;
+  position: relative;
+  left: 40px;
+  border-radius: 15px;
+}
