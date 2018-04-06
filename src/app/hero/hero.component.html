@@ -36,20 +36,20 @@
       <br/>
       <img class="heroImg" src={{selected[1].images.md}}/>
       <p class="hp_bar">
-        <ngb-progressbar type="success" [value]="100"></ngb-progressbar>
+        <ngb-progressbar type="success" value="{{selected[1].powerstats.durability}}"></ngb-progressbar>
       </p>
     </div>
   </div>
   <div class="row">
     <div class="col-3">
       <h3>SKILLS</h3>
-      <button type="button" class="btn btn-primary">Light Attack</button>
+      <button type="button" class="btn btn-primary" (click)="attack1()">Light Attack</button>
       <button type="button" class="btn btn-primary">Heavy Attack</button>
     </div>
     <div class="col-3 offset-6">
       <h3>SKILLS</h3>
       <button type="button" class="btn btn-primary">Light Attack</button>
-      <button type="button" class="btn btn-primary" click="attack1()">Heavy Attack</button>
+      <button type="button" class="btn btn-primary" click="attack2()">Heavy Attack</button>
     </div>
   </div>
 </div>

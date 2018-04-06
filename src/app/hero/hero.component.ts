@@ -12,6 +12,8 @@ export class HeroComponent implements OnInit {
 
   selected;
   ids;
+  durability;
+  powerstats;
   // durability;
   // idHero;
   // imageHlg;
@@ -61,5 +63,10 @@ export class HeroComponent implements OnInit {
     // console.log(me);
     this.selected.push(me);
     console.log(this.selected);
+  }
+  attack1() {
+    this.selected[1].powerstats.durability = this.selected[1].powerstats.durability - 10;
+    console.log(this.selected[1].powerstats.durability);
+
   }
 }
