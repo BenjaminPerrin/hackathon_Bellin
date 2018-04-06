@@ -10,12 +10,17 @@
 
 </p> -->
 <div class="container" *ngIf="isLive">
+  <div class="row justify-content-center">
+    <div class="col-12 text-center">
+      <h1>SELECT YOUR HERO</h1>
+    </div>
+  </div>
   <div *ngFor="let hero of ids">
     <img class="heroImg" (click)="test(hero)" [src]="hero.images.xs" /> {{hero.name}}
   </div>
   <button type="button" class="btn btn-primary" (click)="liveGame()">FIGHT</button>
-
 </div>
+
 <div class="container" *ngIf="!isLive">
   <div class="row justify-content-center">
     <div class="col-12 text-center">
