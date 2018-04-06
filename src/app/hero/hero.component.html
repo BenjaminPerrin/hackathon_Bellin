@@ -9,52 +9,60 @@
 </p>
 
 </p> -->
-<div class="container" *ngIf="isLive">
-  <div class="row justify-content-center">
-    <div class="col-12 text-center">
-      <h1>SELECT YOUR HERO</h1>
+<div class="container-fluid" *ngIf="isLive">
+  <div class="select_bg">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <h1>SELECT YOUR HERO</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngFor="let hero of ids" class="col">
+        <img class="heroImg" (click)="test(hero)" [src]="hero.images.xs" /> {{hero.name}}
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <button type="button" class="btn btn-primary" (click)="liveGame()">FIGHT</button>
     </div>
   </div>
-  <div *ngFor="let hero of ids">
-    <img class="heroImg" (click)="test(hero)" [src]="hero.images.xs" /> {{hero.name}}
-  </div>
-  <button type="button" class="btn btn-primary" (click)="liveGame()">FIGHT</button>
 </div>
 
-<div class="container" *ngIf="!isLive">
-  <div class="row justify-content-center">
-    <div class="col-12 text-center">
-      <h1>TURN [number]</h1>
+<div class="container-fluid" *ngIf="!isLive">
+  <div class="combat_bg">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <h1>TURN [number]</h1>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-3">
-      <h3>{{selected[0].name}}</h3>
-      <br/>
-      <img class="heroImg" src={{selected[0].images.md}}/>
-      <p class="hp_bar">
-        <ngb-progressbar type="success" [value]="hp"></ngb-progressbar>
-      </p>
+    <div class="row">
+      <div class="col-3 text-center">
+        <h3>{{selected[0].name}}</h3>
+        <br/>
+        <img class="heroImg" src={{selected[0].images.md}}/>
+        <p class="hp_bar">
+          <ngb-progressbar type="success" [value]="hp"></ngb-progressbar>
+        </p>
+      </div>
+      <div class="col-3 offset-6 text-center">
+        <h3>{{selected[1].name}}</h3>
+        <br/>
+        <img class="heroImg" src={{selected[1].images.md}}/>
+        <p class="hp_bar">
+          <ngb-progressbar type="success" [value]="100"></ngb-progressbar>
+        </p>
+      </div>
     </div>
-    <div class="col-3 offset-6">
-      <h3>{{selected[1].name}}</h3>
-      <br/>
-      <img class="heroImg" src={{selected[1].images.md}}/>
-      <p class="hp_bar">
-        <ngb-progressbar type="success" [value]="100"></ngb-progressbar>
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-3">
-      <h3>SKILLS</h3>
-      <button type="button" class="btn btn-primary">Light Attack</button>
-      <button type="button" class="btn btn-primary">Heavy Attack</button>
-    </div>
-    <div class="col-3 offset-6">
-      <h3>SKILLS</h3>
-      <button type="button" class="btn btn-primary">Light Attack</button>
-      <button type="button" class="btn btn-primary" click="attack1()">Heavy Attack</button>
+    <div class="row">
+      <div class="col-3">
+        <h3>SKILLS</h3>
+        <button type="button" class="btn btn-primary">Light Attack</button>
+        <button type="button" class="btn btn-primary">Heavy Attack</button>
+      </div>
+      <div class="col-3 offset-6">
+        <h3>SKILLS</h3>
+        <button type="button" class="btn btn-primary">Light Attack</button>
+        <button type="button" class="btn btn-primary" click="attack1()">Heavy Attack</button>
+      </div>
     </div>
   </div>
 </div>
